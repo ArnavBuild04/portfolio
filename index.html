@@ -260,6 +260,128 @@ footer a:hover{color:var(--accent)}
   .contact-big{font-size:clamp(52px,14vw,100px)}
   .lc-top-row{flex-direction:column}.lc-total-box{flex:none}
 }
+
+/* ===== EXTRA MOBILE RESPONSIVENESS (DO NOT REMOVE EXISTING CSS) ===== */
+
+@media (max-width: 600px){
+
+/* NAV */
+nav{
+  padding:0 16px;
+}
+.nav-links{
+  display:none;
+}
+
+/* HERO */
+#hero{
+  padding:90px 16px 50px;
+}
+
+.hero-name{
+  font-size: clamp(48px,16vw,80px);
+}
+
+.hero-desc{
+  max-width:100%;
+  font-size:12px;
+}
+
+.hero-bottom{
+  gap:24px;
+}
+
+.hero-metrics{
+  grid-template-columns:1fr 1fr;
+  width:100%;
+}
+
+.hm{
+  padding:18px 16px;
+}
+
+.hm-num{
+  font-size:28px;
+}
+
+/* CTA */
+.hero-cta{
+  width:100%;
+  align-items:flex-start;
+}
+
+.cta-btn{
+  width:100%;
+  justify-content:center;
+}
+
+/* SECTION PADDING */
+.section{
+  padding:64px 16px;
+}
+
+/* PROJECT GRID */
+.proj-grid{
+  grid-template-columns:1fr;
+}
+
+.proj-card{
+  padding:28px;
+}
+
+/* WORK */
+.work-item{
+  padding:40px 0;
+}
+
+.work-left{
+  padding:0;
+}
+
+.work-co{
+  font-size:24px;
+}
+
+/* STACK */
+.stack-grid{
+  grid-template-columns:80px 1fr;
+}
+
+/* LEETCODE */
+#leetcode .s-header{
+  padding:80px 16px 0;
+}
+
+.lc-pad{
+  padding:0 16px 70px;
+}
+
+.lc-total-box{
+  padding:26px;
+}
+
+.lc-total-num{
+  font-size:60px;
+}
+
+/* ABOUT */
+.about-grid{
+  grid-template-columns:1fr;
+  gap:40px;
+}
+
+/* CONTACT */
+.contact-big{
+  font-size:clamp(48px,16vw,80px);
+}
+
+/* FOOTER */
+footer{
+  padding:20px 16px;
+}
+
+}
+
 </style>
 </head>
 <body>
