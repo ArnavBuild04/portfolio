@@ -825,7 +825,7 @@ footer a:hover{color:var(--text)}
       </div>
 
       <div class="hero-cta">
-        <a href="mailto:arnavanant04@gmail.com" class="cta-btn cta-primary">Get in touch →</a>
+        <a href="/cdn-cgi/l/email-protection#2d4c5f434c5b4c434c43591d196d4a404c4441034e4240" class="cta-btn cta-primary">Get in touch →</a>
         <a href="https://github.com/ArnavBuild04" target="_blank" class="cta-btn cta-ghost">GitHub ↗</a>
       </div>
     </div>
@@ -1055,7 +1055,7 @@ footer a:hover{color:var(--text)}
     <div class="s-line"></div>
   </div>
 
-  <div class="lc-outer">
+  <div class="lc-outer" style="grid-template-columns:1fr;max-width:860px">
     <!-- LEFT: bars + heatmap -->
     <div class="lc-ring-wrap r">
 
@@ -1122,46 +1122,6 @@ footer a:hover{color:var(--text)}
       </div>
     </div>
 
-    <!-- RIGHT: stat blocks -->
-    <div>
-      <div class="lc-right r">
-        <div class="lc-stat-block">
-          <div class="lc-sb-label">Acceptance Rate</div>
-          <div class="lc-sb-val">68.4%</div>
-          <div class="lc-sb-sub">Above platform average of ~54%</div>
-        </div>
-
-        <div class="lc-stat-block">
-          <div class="lc-sb-label">Current Streak</div>
-          <div class="lc-sb-val" id="lc-streak-num">0</div>
-          <div class="lc-sb-sub">Days consecutive</div>
-          <div class="lc-streak-row" id="lc-streak-dots"></div>
-        </div>
-
-        <div class="lc-stat-block">
-          <div class="lc-sb-label">Contest Rating</div>
-          <div class="lc-sb-val">1,680</div>
-          <div class="lc-sb-sub">Top 25% globally</div>
-        </div>
-
-        <div class="lc-stat-block">
-          <div class="lc-sb-label">Peak Difficulty</div>
-          <div class="lc-sb-val" style="color:#f87171">Hard</div>
-          <div class="lc-sb-sub">Consistent hard problem solver</div>
-        </div>
-
-        <div class="lc-stat-block">
-          <div class="lc-sb-label">Handle</div>
-          <div class="lc-sb-val" style="font-size:22px;color:var(--accent)">arnava_t3</div>
-          <div class="lc-sb-sub">@leetcode.com</div>
-        </div>
-      </div>
-
-      <a href="https://leetcode.com/u/arnava_t3/" target="_blank" class="lc-cta-block r">
-        <span class="lc-cta-text">View full profile ↗</span>
-        <span class="lc-cta-arr">↗</span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -1219,6 +1179,11 @@ footer a:hover{color:var(--text)}
           <div class="info-val open">Backend / SWE roles ●</div>
         </div>
       </div>
+
+      <a href="https://leetcode.com/u/arnava_t3/" target="_blank" class="lc-cta-block r">
+        <span class="lc-cta-text">View full profile — arnava_t3 ↗</span>
+        <span class="lc-cta-arr">↗</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1235,8 +1200,8 @@ footer a:hover{color:var(--text)}
       real-time infrastructure. Let's talk.
     </p>
     <div class="contact-row">
-      <a href="mailto:arnavanant04@gmail.com" class="cta-btn cta-primary">
-        → arnavanant04@gmail.com
+      <a href="/cdn-cgi/l/email-protection#7e1f0c101f081f101f100a4e4a3e19131f1712501d1113" class="cta-btn cta-primary">
+        → <span class="__cf_email__" data-cfemail="08697a66697e696669667c383c486f65696164266b6765">[email&#160;protected]</span>
       </a>
       <a href="https://www.linkedin.com/in/arnav-anant-3290032a2/" target="_blank" class="cta-btn cta-ghost">LinkedIn ↗</a>
       <a href="https://github.com/ArnavBuild04" target="_blank" class="cta-btn cta-ghost">GitHub ↗</a>
@@ -1263,10 +1228,10 @@ const cur   = document.getElementById('cur');
 const trail = document.getElementById('cur-trail');
 
 document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX+'px';
-  cur.style.top  = e.clientY+'px';
-  trail.style.left = e.clientX+'px';
-  trail.style.top  = e.clientY+'px';
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
+  trail.style.left = e.clientX + 'px';
+  trail.style.top  = e.clientY + 'px';
 });
 
 document.querySelectorAll('a,button').forEach(el => {
@@ -1283,8 +1248,7 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id; });
   links.forEach(a => {
-    const active = a.getAttribute('href') === '#'+current;
-    a.style.color = active ? 'var(--text)' : '';
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
   });
 });
 
@@ -1297,7 +1261,7 @@ const obs = new IntersectionObserver(entries => {
       obs.unobserve(e.target);
     }
   });
-}, {threshold: 0.07});
+}, { threshold: 0.07 });
 
 document.querySelectorAll('.r').forEach((el, i) => {
   el.dataset.d = (i % 3) * 100;
@@ -1305,15 +1269,10 @@ document.querySelectorAll('.r').forEach((el, i) => {
 });
 
 // ── LEETCODE ANIMATIONS ──────────────────────
-const LC = {
-  total: 458,
-  easy:  148,
-  medium: 241,
-  hard:  69,
-  streak: 18
-};
+const LC = { total: 458, easy: 148, medium: 241, hard: 69 };
 
-function countUp(el, target, duration = 1400) {
+function countUp(el, target, duration) {
+  if (!el) return;
   const start = performance.now();
   const raf = (now) => {
     const p = Math.min((now - start) / duration, 1);
@@ -1334,24 +1293,19 @@ function animateBars() {
 
 function buildHeatmap() {
   const grid = document.getElementById('lc-hmap');
-  const cols = 52;
-  const rows = 7;
-  // seeded pseudo-random activity data
+  if (!grid) return;
   const seed = (c, r) => {
     const x = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
     return x - Math.floor(x);
   };
-  for (let c = 0; c < cols; c++) {
+  for (let c = 0; c < 52; c++) {
     const col = document.createElement('div');
     col.className = 'lc-hmap-col';
-    for (let r = 0; r < rows; r++) {
+    for (let r = 0; r < 7; r++) {
       const cell = document.createElement('div');
       cell.className = 'lc-hmap-cell';
-      const v = seed(c, r);
-      // more activity in recent weeks (higher c)
-      const recency = c / cols;
-      const prob = v * (0.4 + recency * 0.6);
-      if (prob > 0.72) cell.dataset.v = '4';
+      const prob = seed(c, r) * (0.4 + (c / 52) * 0.6);
+      if (prob > 0.72)      cell.dataset.v = '4';
       else if (prob > 0.58) cell.dataset.v = '3';
       else if (prob > 0.44) cell.dataset.v = '2';
       else if (prob > 0.32) cell.dataset.v = '1';
@@ -1361,19 +1315,6 @@ function buildHeatmap() {
   }
 }
 
-function buildStreakDots() {
-  const container = document.getElementById('lc-streak-dots');
-  for (let i = 0; i < 30; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'lc-streak-dot';
-    if (i >= 30 - LC.streak) {
-      dot.classList.add(i >= 27 ? 'hot' : 'active');
-    }
-    container.appendChild(dot);
-  }
-}
-
-// Trigger all LC animations when section enters viewport
 const lcSection = document.getElementById('leetcode');
 let lcAnimated = false;
 const lcObs = new IntersectionObserver(entries => {
@@ -1384,15 +1325,13 @@ const lcObs = new IntersectionObserver(entries => {
       countUp(document.getElementById('lc-easy'),   LC.easy,   1100);
       countUp(document.getElementById('lc-med'),    LC.medium, 1200);
       countUp(document.getElementById('lc-hard'),   LC.hard,   1300);
-      countUp(document.getElementById('lc-streak-num'), LC.streak, 800);
       animateBars();
     }
   });
-}, {threshold: 0.15});
+}, { threshold: 0.15 });
 
 buildHeatmap();
-buildStreakDots();
-lcObs.observe(lcSection);
+if (lcSection) lcObs.observe(lcSection);
 </script>
 </body>
 </html>
