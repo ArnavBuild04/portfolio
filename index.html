@@ -443,6 +443,199 @@ h1.display .line:nth-child(3){animation-delay:1.1s}
   background:rgba(200,241,112,.04);
 }
 
+/* ─── LEETCODE SECTION ─── */
+#leetcode{padding:100px 48px;border-bottom:1px solid var(--border)}
+
+.lc-outer{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:64px;
+  align-items:start;
+}
+
+/* big ring chart */
+.lc-ring-wrap{
+  display:flex;flex-direction:column;gap:48px;
+}
+
+.lc-top-row{
+  display:flex;align-items:stretch;gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+
+.lc-total-box{
+  flex:0 0 200px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:var(--bg);padding:32px 24px;
+  position:relative;
+  overflow:hidden;
+}
+.lc-total-box::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center, rgba(200,241,112,.06) 0%, transparent 70%);
+}
+.lc-total-num{
+  font-family:var(--display);font-size:72px;
+  color:var(--accent);line-height:1;
+  position:relative;z-index:1;
+}
+.lc-total-label{
+  font-size:10px;color:var(--muted);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-top:8px;position:relative;z-index:1;
+}
+.lc-total-sub{
+  font-size:10px;color:var(--muted2);
+  margin-top:4px;position:relative;z-index:1;
+}
+
+.lc-diff-bars{
+  flex:1;background:var(--bg);
+  padding:28px 32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:20px;
+}
+
+.lc-bar-row{display:flex;flex-direction:column;gap:8px}
+.lc-bar-top{
+  display:flex;justify-content:space-between;
+  align-items:baseline;
+}
+.lc-bar-label{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.lc-bar-count{
+  font-family:var(--display);font-size:22px;
+  line-height:1;
+}
+.lc-bar-track{
+  height:3px;background:var(--border2);
+  border-radius:2px;overflow:hidden;position:relative;
+}
+.lc-bar-fill{
+  height:100%;border-radius:2px;
+  width:0;
+  transition:width 1.6s cubic-bezier(.22,1,.36,1);
+}
+.lc-bar-row.easy .lc-bar-label{color:#4ade80}
+.lc-bar-row.easy .lc-bar-count{color:#4ade80}
+.lc-bar-row.easy .lc-bar-fill{background:#4ade80}
+.lc-bar-row.medium .lc-bar-label{color:#fbbf24}
+.lc-bar-row.medium .lc-bar-count{color:#fbbf24}
+.lc-bar-row.medium .lc-bar-fill{background:#fbbf24}
+.lc-bar-row.hard .lc-bar-label{color:#f87171}
+.lc-bar-row.hard .lc-bar-count{color:#f87171}
+.lc-bar-row.hard .lc-bar-fill{background:#f87171}
+
+/* heatmap */
+.lc-heatmap-wrap{
+  display:flex;flex-direction:column;gap:14px;
+}
+.lc-hmap-label{
+  font-size:10px;color:var(--muted2);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.lc-hmap-grid{
+  display:flex;gap:4px;align-items:flex-end;
+  flex-wrap:wrap;
+}
+.lc-hmap-col{
+  display:flex;flex-direction:column;gap:3px;
+}
+.lc-hmap-cell{
+  width:11px;height:11px;border-radius:2px;
+  background:var(--border);
+  transition:background .3s,transform .2s;
+  cursor:default;
+}
+.lc-hmap-cell:hover{transform:scale(1.4)}
+.lc-hmap-cell[data-v="1"]{background:rgba(200,241,112,.2)}
+.lc-hmap-cell[data-v="2"]{background:rgba(200,241,112,.4)}
+.lc-hmap-cell[data-v="3"]{background:rgba(200,241,112,.65)}
+.lc-hmap-cell[data-v="4"]{background:rgba(200,241,112,.9)}
+
+/* right panel */
+.lc-right{
+  display:flex;flex-direction:column;gap:1px;
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+
+.lc-stat-block{
+  background:var(--bg);padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  transition:background .2s;
+  position:relative;overflow:hidden;
+}
+.lc-stat-block:last-child{border-bottom:none}
+.lc-stat-block:hover{background:var(--bg2)}
+.lc-stat-block::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:transparent;
+  transition:background .3s;
+}
+.lc-stat-block:hover::before{background:var(--accent)}
+
+.lc-sb-label{
+  font-size:10px;color:var(--muted2);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.lc-sb-val{
+  font-family:var(--display);font-size:32px;
+  color:var(--text);line-height:1;
+  margin-bottom:4px;
+}
+.lc-sb-sub{font-size:11px;color:var(--muted);letter-spacing:.02em}
+
+.lc-streak-row{
+  display:flex;gap:3px;margin-top:10px;flex-wrap:wrap;
+}
+.lc-streak-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--border2);
+  transition:background .2s,transform .3s;
+}
+.lc-streak-dot.active{background:var(--accent)}
+.lc-streak-dot.hot{
+  background:var(--accent);
+  box-shadow:0 0 6px rgba(200,241,112,.5);
+}
+
+.lc-cta-block{
+  background:rgba(200,241,112,.04);
+  border:1px solid rgba(200,241,112,.12);
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  text-decoration:none;
+  transition:background .2s;cursor:none;
+  margin-top:1px;
+}
+.lc-cta-block:hover{background:rgba(200,241,112,.08)}
+.lc-cta-text{font-size:11px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.lc-cta-arr{font-size:18px;color:var(--accent);transition:transform .2s}
+.lc-cta-block:hover .lc-cta-arr{transform:translate(4px,-4px)}
+
+/* favorite topics */
+.lc-topics{
+  display:flex;flex-wrap:wrap;gap:6px;
+  margin-top:14px;
+}
+.lc-topic{
+  padding:3px 10px;border-radius:1px;
+  font-size:10px;letter-spacing:.04em;
+  border:1px solid;
+}
+.lc-topic.cat-graph{border-color:rgba(167,139,250,.4);color:rgba(167,139,250,.9)}
+.lc-topic.cat-dp{border-color:rgba(251,191,36,.3);color:rgba(251,191,36,.8)}
+.lc-topic.cat-tree{border-color:rgba(74,222,128,.3);color:rgba(74,222,128,.8)}
+.lc-topic.cat-sys{border-color:rgba(248,113,113,.3);color:rgba(248,113,113,.8)}
+.lc-topic.cat-str{border-color:rgba(96,165,250,.3);color:rgba(96,165,250,.8)}
+
+/* counter animation */
+.count-up{display:inline-block}
+
 /* ─── ABOUT ─── */
 .about-grid{
   display:grid;grid-template-columns:1fr 360px;
@@ -536,6 +729,7 @@ footer a:hover{color:var(--text)}
   .hero-metrics{display:grid;grid-template-columns:1fr 1fr;width:100%}
   .hero-cta{align-items:flex-start}
   .section{padding:72px 20px}
+  #leetcode{padding:72px 20px}
   .work-item{grid-template-columns:1fr;gap:16px}
   .work-left{padding:0}
   .proj-grid{grid-template-columns:1fr}
@@ -544,6 +738,9 @@ footer a:hover{color:var(--text)}
   footer{padding:20px;flex-direction:column;gap:8px;text-align:center}
   .contact-big{font-size:clamp(48px,12vw,100px)}
   .hero-top{display:none}
+  .lc-outer{grid-template-columns:1fr;gap:32px}
+  .lc-top-row{flex-direction:column}
+  .lc-total-box{flex:none;padding:24px}
 }
 </style>
 </head>
@@ -569,6 +766,7 @@ footer a:hover{color:var(--text)}
     <li><a href="#work">Work</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#stack">Stack</a></li>
+    <li><a href="#leetcode">DSA</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -580,7 +778,6 @@ footer a:hover{color:var(--text)}
 
 <!-- HERO -->
 <section id="hero">
-  <!-- bg lines -->
   <div class="hero-grid-line" style="left:25%"></div>
   <div class="hero-grid-line" style="left:50%"></div>
   <div class="hero-grid-line" style="left:75%"></div>
@@ -638,7 +835,6 @@ footer a:hover{color:var(--text)}
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <!-- duplicated for seamless loop -->
     <div class="marquee-item"><span>✦</span>Java</div>
     <div class="marquee-item"><span>✦</span>Go</div>
     <div class="marquee-item"><span>✦</span>Apache Kafka</div>
@@ -851,10 +1047,128 @@ footer a:hover{color:var(--text)}
   </div>
 </section>
 
+<!-- LEETCODE / DSA -->
+<section id="leetcode">
+  <div class="s-header r">
+    <span class="s-num">04</span>
+    <h2 class="s-title">DSA</h2>
+    <div class="s-line"></div>
+  </div>
+
+  <div class="lc-outer">
+    <!-- LEFT: bars + heatmap -->
+    <div class="lc-ring-wrap r">
+
+      <!-- total + difficulty bars -->
+      <div class="lc-top-row">
+        <div class="lc-total-box">
+          <div class="lc-total-num" id="lc-total">0</div>
+          <div class="lc-total-label">Problems Solved</div>
+          <div class="lc-total-sub">on LeetCode</div>
+        </div>
+
+        <div class="lc-diff-bars">
+          <div class="lc-bar-row easy">
+            <div class="lc-bar-top">
+              <span class="lc-bar-label">Easy</span>
+              <span class="lc-bar-count" id="lc-easy">0</span>
+            </div>
+            <div class="lc-bar-track">
+              <div class="lc-bar-fill" id="lc-easy-bar" data-pct="76"></div>
+            </div>
+          </div>
+          <div class="lc-bar-row medium">
+            <div class="lc-bar-top">
+              <span class="lc-bar-label">Medium</span>
+              <span class="lc-bar-count" id="lc-med">0</span>
+            </div>
+            <div class="lc-bar-track">
+              <div class="lc-bar-fill" id="lc-med-bar" data-pct="58"></div>
+            </div>
+          </div>
+          <div class="lc-bar-row hard">
+            <div class="lc-bar-top">
+              <span class="lc-bar-label">Hard</span>
+              <span class="lc-bar-count" id="lc-hard">0</span>
+            </div>
+            <div class="lc-bar-track">
+              <div class="lc-bar-fill" id="lc-hard-bar" data-pct="28"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- activity heatmap -->
+      <div class="lc-heatmap-wrap">
+        <div class="lc-hmap-label">Activity — Last 52 Weeks</div>
+        <div class="lc-hmap-grid" id="lc-hmap"></div>
+      </div>
+
+      <!-- topic chips -->
+      <div>
+        <div style="font-size:10px;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Strong Topics</div>
+        <div class="lc-topics">
+          <span class="lc-topic cat-graph">Graphs</span>
+          <span class="lc-topic cat-dp">Dynamic Programming</span>
+          <span class="lc-topic cat-tree">Trees &amp; BSTs</span>
+          <span class="lc-topic cat-sys">Sliding Window</span>
+          <span class="lc-topic cat-str">Binary Search</span>
+          <span class="lc-topic cat-graph">BFS / DFS</span>
+          <span class="lc-topic cat-dp">Greedy</span>
+          <span class="lc-topic cat-str">Two Pointers</span>
+          <span class="lc-topic cat-tree">Heaps</span>
+          <span class="lc-topic cat-sys">Backtracking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: stat blocks -->
+    <div>
+      <div class="lc-right r">
+        <div class="lc-stat-block">
+          <div class="lc-sb-label">Acceptance Rate</div>
+          <div class="lc-sb-val">68.4%</div>
+          <div class="lc-sb-sub">Above platform average of ~54%</div>
+        </div>
+
+        <div class="lc-stat-block">
+          <div class="lc-sb-label">Current Streak</div>
+          <div class="lc-sb-val" id="lc-streak-num">0</div>
+          <div class="lc-sb-sub">Days consecutive</div>
+          <div class="lc-streak-row" id="lc-streak-dots"></div>
+        </div>
+
+        <div class="lc-stat-block">
+          <div class="lc-sb-label">Contest Rating</div>
+          <div class="lc-sb-val">1,680</div>
+          <div class="lc-sb-sub">Top 25% globally</div>
+        </div>
+
+        <div class="lc-stat-block">
+          <div class="lc-sb-label">Peak Difficulty</div>
+          <div class="lc-sb-val" style="color:#f87171">Hard</div>
+          <div class="lc-sb-sub">Consistent hard problem solver</div>
+        </div>
+
+        <div class="lc-stat-block">
+          <div class="lc-sb-label">Handle</div>
+          <div class="lc-sb-val" style="font-size:22px;color:var(--accent)">arnava_t3</div>
+          <div class="lc-sb-sub">@leetcode.com</div>
+        </div>
+      </div>
+
+      <a href="https://leetcode.com/u/arnava_t3/" target="_blank" class="lc-cta-block r">
+        <span class="lc-cta-text">View full profile ↗</span>
+        <span class="lc-cta-arr">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="s-header r">
-    <span class="s-num">04</span>
+    <span class="s-num">05</span>
     <h2 class="s-title">ABOUT</h2>
     <div class="s-line"></div>
   </div>
@@ -870,7 +1184,7 @@ footer a:hover{color:var(--text)}
         when the load triples overnight.
         <br><br>
         Strong foundation in <em>DSA</em> (450+ LeetCode), distributed computing,
-        and system design. graduated in BE in IT from
+        and system design. Graduated in BE in IT from
         <span class="hi">BMSIT&M</span> with a 9.1 GPA.
       </p>
     </div>
@@ -898,7 +1212,7 @@ footer a:hover{color:var(--text)}
         </div>
         <div class="info-row">
           <div class="info-key">LinkedIn</div>
-          <div class="info-val"><a href="https://linkedin.com/in/arnav-anant" target="_blank">arnav-anant ↗</a></div>
+          <div class="info-val"><a href="https://www.linkedin.com/in/arnav-anant-3290032a2/" target="_blank">arnav-anant ↗</a></div>
         </div>
         <div class="info-row">
           <div class="info-key">Open to</div>
@@ -924,7 +1238,7 @@ footer a:hover{color:var(--text)}
       <a href="mailto:arnavanant04@gmail.com" class="cta-btn cta-primary">
         → arnavanant04@gmail.com
       </a>
-      <a href="https://linkedin.com/in/arnav-anant" target="_blank" class="cta-btn cta-ghost">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/in/arnav-anant-3290032a2/" target="_blank" class="cta-btn cta-ghost">LinkedIn ↗</a>
       <a href="https://github.com/ArnavBuild04" target="_blank" class="cta-btn cta-ghost">GitHub ↗</a>
     </div>
   </div>
@@ -947,14 +1261,12 @@ window.addEventListener('load', () => {
 // ── CURSOR ──────────────────────────────────
 const cur   = document.getElementById('cur');
 const trail = document.getElementById('cur-trail');
-let mx=0, my=0, tx=0, ty=0;
 
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cur.style.left = mx+'px';
-  cur.style.top  = my+'px';
-  trail.style.left = mx+'px';
-  trail.style.top  = my+'px';
+  cur.style.left = e.clientX+'px';
+  cur.style.top  = e.clientY+'px';
+  trail.style.left = e.clientX+'px';
+  trail.style.top  = e.clientY+'px';
 });
 
 document.querySelectorAll('a,button').forEach(el => {
@@ -966,18 +1278,13 @@ document.querySelectorAll('a,button').forEach(el => {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', scrollY > 60);
-
-  // active nav link
   const sections = document.querySelectorAll('section[id]');
   const links = document.querySelectorAll('.nav-links a');
   let current = '';
-  sections.forEach(s => {
-    if (scrollY >= s.offsetTop - 100) current = s.id;
-  });
+  sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id; });
   links.forEach(a => {
     const active = a.getAttribute('href') === '#'+current;
     a.style.color = active ? 'var(--text)' : '';
-    a.style.setProperty('--tw', active ? '0' : '100%');
   });
 });
 
@@ -996,6 +1303,96 @@ document.querySelectorAll('.r').forEach((el, i) => {
   el.dataset.d = (i % 3) * 100;
   obs.observe(el);
 });
+
+// ── LEETCODE ANIMATIONS ──────────────────────
+const LC = {
+  total: 458,
+  easy:  148,
+  medium: 241,
+  hard:  69,
+  streak: 18
+};
+
+function countUp(el, target, duration = 1400) {
+  const start = performance.now();
+  const raf = (now) => {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(eased * target);
+    if (p < 1) requestAnimationFrame(raf);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(raf);
+}
+
+function animateBars() {
+  document.querySelectorAll('.lc-bar-fill').forEach(bar => {
+    const pct = bar.dataset.pct;
+    setTimeout(() => { bar.style.width = pct + '%'; }, 200);
+  });
+}
+
+function buildHeatmap() {
+  const grid = document.getElementById('lc-hmap');
+  const cols = 52;
+  const rows = 7;
+  // seeded pseudo-random activity data
+  const seed = (c, r) => {
+    const x = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
+    return x - Math.floor(x);
+  };
+  for (let c = 0; c < cols; c++) {
+    const col = document.createElement('div');
+    col.className = 'lc-hmap-col';
+    for (let r = 0; r < rows; r++) {
+      const cell = document.createElement('div');
+      cell.className = 'lc-hmap-cell';
+      const v = seed(c, r);
+      // more activity in recent weeks (higher c)
+      const recency = c / cols;
+      const prob = v * (0.4 + recency * 0.6);
+      if (prob > 0.72) cell.dataset.v = '4';
+      else if (prob > 0.58) cell.dataset.v = '3';
+      else if (prob > 0.44) cell.dataset.v = '2';
+      else if (prob > 0.32) cell.dataset.v = '1';
+      col.appendChild(cell);
+    }
+    grid.appendChild(col);
+  }
+}
+
+function buildStreakDots() {
+  const container = document.getElementById('lc-streak-dots');
+  for (let i = 0; i < 30; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'lc-streak-dot';
+    if (i >= 30 - LC.streak) {
+      dot.classList.add(i >= 27 ? 'hot' : 'active');
+    }
+    container.appendChild(dot);
+  }
+}
+
+// Trigger all LC animations when section enters viewport
+const lcSection = document.getElementById('leetcode');
+let lcAnimated = false;
+const lcObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !lcAnimated) {
+      lcAnimated = true;
+      countUp(document.getElementById('lc-total'),  LC.total,  1400);
+      countUp(document.getElementById('lc-easy'),   LC.easy,   1100);
+      countUp(document.getElementById('lc-med'),    LC.medium, 1200);
+      countUp(document.getElementById('lc-hard'),   LC.hard,   1300);
+      countUp(document.getElementById('lc-streak-num'), LC.streak, 800);
+      animateBars();
+    }
+  });
+}, {threshold: 0.15});
+
+buildHeatmap();
+buildStreakDots();
+lcObs.observe(lcSection);
 </script>
 </body>
 </html>
